@@ -11,54 +11,50 @@ class Login extends StatelessWidget{
   Widget build(BuildContext context) {
 
     final emailField = TextField(
-      obscureText: true,
+      obscureText: false,
       style: style,
       decoration: InputDecoration(
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Email",
           border:
-          OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))),
+    );
+
+    final passField = TextField(
+      obscureText: true,
+      style: style,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: "Senha",
+          border:
+          OutlineInputBorder(borderSide: BorderSide(width: 16.0, color: Colors.lightBlue.shade50))),
     );
 
 
     return new Scaffold(
       backgroundColor: Colors.blue,
-      body: Container(
-        child: Center(
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  height: 150,
-                  child: emailField,
-                ),
-              SizedBox(
-                height: 150,
-                child: emailField,)
-              ],
+      appBar: AppBar(
+        title: Text("Teste",textAlign: TextAlign.center,),
+      ),
+      body: Center(
+        child: SizedBox(
+          width: 300.0,
+          height: 300.0,
+            child:  Card(
+              child:Column(
+                children: <Widget>[
+                  TextField(autofocus: true,
+                  decoration: InputDecoration(
+                    labelText: 'Email'
+                  ),),
+              TextField(autofocus: true,
+              decoration: InputDecoration(
+                  labelText: 'Senha'
+              ),)
+                ],
+              ),
             )
-          ),
-        ),
-        // Add box decoration
-        decoration: BoxDecoration(
-          // Box decoration takes a gradient
-          gradient: LinearGradient(
-            // Where the linear gradient begins and ends
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0.1, 0.5, 0.7, 0.9],
-            colors: [
-              // Colors are easy thanks to Flutter's Colors class.
-              Colors.blue[100],
-              Colors.blue[500],
-              Colors.blue[600],
-              Colors.blue[400],
-            ],
-          ),
-        ),
+        )
       ),
     );
   }
