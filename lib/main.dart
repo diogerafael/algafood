@@ -39,18 +39,12 @@ class Login extends StatelessWidget{
       body: Center(
         child: SizedBox(
           width: 300.0,
-          height: 300.0,
+          height: 320.0,
             child:  Card(
-              child:Column(
+              child: ListView(
                 children: <Widget>[
-                  TextField(autofocus: true,
-                  decoration: InputDecoration(
-                    labelText: 'Email'
-                  ),),
-              TextField(autofocus: true,
-              decoration: InputDecoration(
-                  labelText: 'Senha'
-              ),)
+                  loginSetion,
+                  passwdSetion,
                 ],
               ),
             )
@@ -59,3 +53,58 @@ class Login extends StatelessWidget{
     );
   }
 }
+
+
+Widget loginSetion = Container(
+  padding: const EdgeInsets.all(24),
+  child: Row(children: <Widget>[
+    Icon(Icons.add),
+    Expanded(
+      child: TextField(autofocus: true,
+                      decoration: InputDecoration(
+                        labelText: 'Email'
+                      ),),
+    )
+    
+  ],),
+);
+
+bool isSwitched = true;
+
+Widget passwdSetion = Container(
+  padding: const EdgeInsets.all(32),
+  child: Column(children: <Widget>[
+    Row(
+      children: <Widget>[
+        Icon(Icons.add),
+        Expanded(
+      child: TextField(autofocus: true,
+                      decoration: InputDecoration(
+                        labelText: 'Email'
+                      ),),
+    )
+      ],
+    ),
+    Row(
+      children: <Widget>[
+        Divider(),
+        Row(          
+          children: <Widget>[
+            Text('Lembrar login'),            
+            Switch(              
+              value: isSwitched,
+              activeTrackColor: Colors.lightGreenAccent,
+              activeColor: Colors.green,
+              onChanged: _onSwitchChanged              
+            )
+          ],
+        )
+      ],
+    )    
+  ],),
+);
+
+
+void _onSwitchChanged(bool value) {
+      isSwitched = false;
+    }
