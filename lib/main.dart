@@ -1,3 +1,4 @@
+import 'package:algafood/ui/SelecionarMesaComanda.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MaterialApp(home:Login()));
@@ -45,6 +46,7 @@ class Login extends StatelessWidget{
                 children: <Widget>[
                   loginSetion,
                   passwdSetion,
+                  buttonLogin(context),
                 ],
               ),
             )
@@ -56,7 +58,7 @@ class Login extends StatelessWidget{
 
 
 Widget loginSetion = Container(
-  padding: const EdgeInsets.all(24),
+  padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
   child: Row(children: <Widget>[
     Icon(Icons.add),
     Expanded(
@@ -72,7 +74,7 @@ Widget loginSetion = Container(
 bool isSwitched = true;
 
 Widget passwdSetion = Container(
-  padding: const EdgeInsets.all(32),
+  padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
   child: Column(children: <Widget>[
     Row(
       children: <Widget>[
@@ -80,7 +82,7 @@ Widget passwdSetion = Container(
         Expanded(
       child: TextField(autofocus: true,
                       decoration: InputDecoration(
-                        labelText: 'Email'
+                        labelText: 'Senha'
                       ),),
     )
       ],
@@ -108,3 +110,15 @@ Widget passwdSetion = Container(
 void _onSwitchChanged(bool value) {
       isSwitched = false;
     }
+
+
+Widget buttonLogin(BuildContext context){
+  return new RaisedButton(
+                    onPressed: () {
+                      Navigator.push(context, 
+                      MaterialPageRoute(builder : (context) => SelecionarMesaComanda() ),
+                      );
+                    },
+                    child: Text('Entrar'),
+                  );                  
+}
