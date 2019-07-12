@@ -114,6 +114,7 @@ void _onSwitchChanged(bool value) {
 
 Widget buttonLogin(BuildContext context){
   return new RaisedButton(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                     onPressed: () {
                       Navigator.push(context, 
                       MaterialPageRoute(builder : (context) => SelecionarMesaComanda() ),
